@@ -4,6 +4,7 @@ namespace TypiCMS\Modules\Attributes\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Modules\Core\Repositories\RepositoriesAbstract;
+use Illuminate\Support\Str;
 
 class EloquentAttributeGroup extends RepositoriesAbstract implements AttributeGroupInterface
 {

@@ -49,6 +49,10 @@ class AttributeGroupsAdminController extends BaseAdminController
      */
     public function edit(AttributeGroup $group)
     {
+        $repository = app('TypiCMS\Modules\Attributes\Repositories\AttributeInterface');
+        $models = $repository->allNestedBy('attribute_group_id', $group->id, [], true);
+        app('JavaScript')->put('models', $models);
+
         return view('attributes::admin.edit-group')
             ->with(['model' => $group]);
     }
