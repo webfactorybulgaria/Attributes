@@ -2,12 +2,12 @@
 
 namespace TypiCMS\Modules\Attributes\Models;
 
-use TypiCMS\Modules\Core\Traits\Translatable;
+use TypiCMS\Modules\Core\Shells\Traits\Translatable;
 use InvalidArgumentException;
 use Log;
 use Laracasts\Presenter\PresentableTrait;
-use TypiCMS\Modules\Core\Models\Base;
-use TypiCMS\Modules\History\Traits\Historable;
+use TypiCMS\Modules\Core\Shells\Models\Base;
+use TypiCMS\Modules\History\Shells\Traits\Historable;
 use TypiCMS\NestableTrait;
 
 class Attribute extends Base
@@ -17,7 +17,7 @@ class Attribute extends Base
     use Translatable;
     use NestableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Attributes\Presenters\ModulePresenter';
+    protected $presenter = 'TypiCMS\Modules\Attributes\Shells\Presenters\ModulePresenter';
 
     /**
      * Declare any properties that should be hidden from JSON Serialization.
@@ -52,7 +52,7 @@ class Attribute extends Base
      */
     public function attributeGroup()
     {
-        return $this->belongsTo('TypiCMS\Modules\Attributes\Models\AttributeGroup');
+        return $this->belongsTo('TypiCMS\Modules\Attributes\Shells\Models\AttributeGroup');
     }
 
     /**

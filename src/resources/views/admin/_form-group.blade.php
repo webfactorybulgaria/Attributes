@@ -11,7 +11,7 @@
     <div class="col-sm-6 container-menulinks">
     	<p>
     	    <a href="{{ route('admin::create-attribute', $model->id) }}">
-    	        <i class="fa fa-fw fa-plus-circle"></i>@lang('db.New attribute')
+    	        <i class="fa fa-fw fa-plus-circle"></i>@lang('attributes::global.New')
     	    </a>
     	</p>
     	<div ng-app="typicms" ng-cloak ng-controller="ListController">
@@ -33,6 +33,6 @@
 
     	{!! TranslatableBootForm::hidden('status')->value(0) !!}
     	{!! TranslatableBootForm::checkbox(trans('validation.attributes.online'), 'status') !!}
-    	{!! TranslatableBootForm::text(trans('validation.attributes.value'), 'value') !!}
+    	{!! TranslatableBootForm::text(trans('attributes::global.attributes.groupname'), 'value') !!}
     </div>
 </div>

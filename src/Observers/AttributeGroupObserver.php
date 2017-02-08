@@ -5,7 +5,7 @@ namespace TypiCMS\Modules\Attributes\Observers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
-use TypiCMS\Modules\Attributes\Models\EloquentAttributeGroup;
+use TypiCMS\Modules\Attributes\Shells\Models\EloquentAttributeGroup;
 use AttributeGroups;
 
 class AttributeGroupObserver

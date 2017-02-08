@@ -3,11 +3,11 @@
 namespace TypiCMS\Modules\Attributes\Http\Controllers;
 
 use Illuminate\Support\Facades\Request;
-use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
-use TypiCMS\Modules\Attributes\Http\Requests\FormRequest;
-use TypiCMS\Modules\Attributes\Models\Attribute;
-use TypiCMS\Modules\Attributes\Models\AttributeGroup;
-use TypiCMS\Modules\Attributes\Repositories\AttributeInterface;
+use TypiCMS\Modules\Core\Shells\Http\Controllers\BaseAdminController;
+use TypiCMS\Modules\Attributes\Shells\Http\Requests\FormRequest;
+use TypiCMS\Modules\Attributes\Shells\Models\Attribute;
+use TypiCMS\Modules\Attributes\Shells\Models\AttributeGroup;
+use TypiCMS\Modules\Attributes\Shells\Repositories\AttributeInterface;
 
 class AdminController extends BaseAdminController
 {
@@ -32,7 +32,7 @@ class AdminController extends BaseAdminController
     /**
      * Edit form for the specified resource.
      *
-     * @param \TypiCMS\Modules\Attributes\Models\Attribute $attribute
+     * @param \TypiCMS\Modules\Attributes\Shells\Models\Attribute $attribute
      *
      * @return \Illuminate\View\View
      */
@@ -48,7 +48,7 @@ class AdminController extends BaseAdminController
     /**
      * Store a newly created resource in storage.
      *
-     * @param \TypiCMS\Modules\Attributes\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Attributes\Shells\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -65,8 +65,8 @@ class AdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param \TypiCMS\Modules\Attributes\Models\Attribute            $attribute
-     * @param \TypiCMS\Modules\Attributes\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Attributes\Shells\Models\Attribute            $attribute
+     * @param \TypiCMS\Modules\Attributes\Shells\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */

@@ -2,10 +2,10 @@
 
 namespace TypiCMS\Modules\Attributes\Models;
 
-use TypiCMS\Modules\Core\Traits\Translatable;
+use TypiCMS\Modules\Core\Shells\Traits\Translatable;
 use Laracasts\Presenter\PresentableTrait;
-use TypiCMS\Modules\Core\Models\Base;
-use TypiCMS\Modules\History\Traits\Historable;
+use TypiCMS\Modules\Core\Shells\Models\Base;
+use TypiCMS\Modules\History\Shells\Traits\Historable;
 
 class AttributeGroup extends Base
 {
@@ -13,7 +13,7 @@ class AttributeGroup extends Base
     use PresentableTrait;
     use Translatable;
 
-    protected $presenter = 'TypiCMS\Modules\Attributes\Presenters\ModulePresenter';
+    protected $presenter = 'TypiCMS\Modules\Attributes\Shells\Presenters\ModulePresenter';
 
     /**
      * Declare any properties that should be hidden from JSON Serialization.
@@ -45,7 +45,7 @@ class AttributeGroup extends Base
      */
     public function products()
     {
-        return $this->morphedByMany('TypiCMS\Modules\Products\Models\Product', 'attributable');
+        return $this->morphedByMany('TypiCMS\Modules\Products\Shells\Models\Product', 'attributable');
     }
 
     /**
@@ -55,6 +55,6 @@ class AttributeGroup extends Base
      */
     public function items()
     {
-        return $this->hasMany('TypiCMS\Modules\Attributes\Models\Attribute')->where('status', 1)->orderBy('position', 'ASC');
+        return $this->hasMany('TypiCMS\Modules\Attributes\Shells\Models\Attribute')->where('status', 1)->orderBy('position', 'ASC');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Attributes\Repositories;
 
-use TypiCMS\Modules\Core\Repositories\RepositoryInterface;
+use TypiCMS\Modules\Core\Shells\Repositories\RepositoryInterface;
 
 interface AttributeGroupInterface extends RepositoryInterface
 {

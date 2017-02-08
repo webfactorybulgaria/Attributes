@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Attributes\Models;
 
-use TypiCMS\Modules\Core\Models\BaseTranslation;
+use TypiCMS\Modules\Core\Shells\Models\BaseTranslation;
 
 class AttributeTranslation extends BaseTranslation
 {
@@ -11,6 +11,6 @@ class AttributeTranslation extends BaseTranslation
      */
     public function owner()
     {
-        return $this->belongsTo('TypiCMS\Modules\Attributes\Models\Attribute', 'attribute_id')->withoutGlobalScopes();
+        return $this->belongsTo('TypiCMS\Modules\Attributes\Shells\Models\Attribute', 'attribute_id')->withoutGlobalScopes();
     }
 }

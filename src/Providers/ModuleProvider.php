@@ -5,16 +5,16 @@ namespace TypiCMS\Modules\Attributes\Providers;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use TypiCMS\Modules\Core\Facades\TypiCMS;
-use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
-use TypiCMS\Modules\Attributes\Models\Attribute;
-use TypiCMS\Modules\Attributes\Models\AttributeTranslation;
-use TypiCMS\Modules\Attributes\Models\AttributeGroup;
-use TypiCMS\Modules\Attributes\Models\AttributeGroupTranslation;
-use TypiCMS\Modules\Attributes\Repositories\CacheDecorator;
-use TypiCMS\Modules\Attributes\Repositories\AttributeGroupCacheDecorator;
-use TypiCMS\Modules\Attributes\Repositories\EloquentAttribute;
-use TypiCMS\Modules\Attributes\Repositories\EloquentAttributeGroup;
+use TypiCMS\Modules\Core\Shells\Facades\TypiCMS;
+use TypiCMS\Modules\Core\Shells\Services\Cache\LaravelCache;
+use TypiCMS\Modules\Attributes\Shells\Models\Attribute;
+use TypiCMS\Modules\Attributes\Shells\Models\AttributeTranslation;
+use TypiCMS\Modules\Attributes\Shells\Models\AttributeGroup;
+use TypiCMS\Modules\Attributes\Shells\Models\AttributeGroupTranslation;
+use TypiCMS\Modules\Attributes\Shells\Repositories\CacheDecorator;
+use TypiCMS\Modules\Attributes\Shells\Repositories\AttributeGroupCacheDecorator;
+use TypiCMS\Modules\Attributes\Shells\Repositories\EloquentAttribute;
+use TypiCMS\Modules\Attributes\Shells\Repositories\EloquentAttributeGroup;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -39,12 +39,12 @@ class ModuleProvider extends ServiceProvider
 
         AliasLoader::getInstance()->alias(
             'Attributes',
-            'TypiCMS\Modules\Attributes\Facades\Facade'
+            'TypiCMS\Modules\Attributes\Shells\Facades\Facade'
         );
 
         AliasLoader::getInstance()->alias(
             'AttributeGroups',
-            'TypiCMS\Modules\Attributes\Facades\AttributeGroupsFacade'
+            'TypiCMS\Modules\Attributes\Shells\Facades\AttributeGroupsFacade'
         );
     }
 
@@ -55,12 +55,12 @@ class ModuleProvider extends ServiceProvider
         /*
          * Register route service provider
          */
-        $app->register('TypiCMS\Modules\Attributes\Providers\RouteServiceProvider');
+        $app->register('TypiCMS\Modules\Attributes\Shells\Providers\RouteServiceProvider');
 
         /*
          * Sidebar view composer
          */
-        $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Attributes\Composers\SidebarViewComposer');
+        $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Attributes\Shells\Composers\SidebarViewComposer');
 
         /*
          * Add the page in the view.
@@ -69,7 +69,7 @@ class ModuleProvider extends ServiceProvider
             $view->page = TypiCMS::getPageLinkedToModule('attributes');
         });
 
-        $app->bind('TypiCMS\Modules\Attributes\Repositories\AttributeInterface', function (Application $app) {
+        $app->bind('TypiCMS\Modules\Attributes\Shells\Repositories\AttributeInterface', function (Application $app) {
             $repository = new EloquentAttribute(new Attribute());
             if (!config('typicms.cache')) {
                 return $repository;
@@ -79,7 +79,7 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Attributes\Repositories\AttributeGroupInterface', function (Application $app) {
+        $app->bind('TypiCMS\Modules\Attributes\Shells\Repositories\AttributeGroupInterface', function (Application $app) {
             $repository = new EloquentAttributeGroup(new AttributeGroup());
             if (!config('typicms.cache')) {
                 return $repository;

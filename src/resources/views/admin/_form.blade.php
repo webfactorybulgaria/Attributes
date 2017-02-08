@@ -16,7 +16,7 @@
 {!! TranslatableBootForm::checkbox(trans('validation.attributes.online'), 'status') !!}
 
 @if($group->type == 'colorbox')
-	{!! TranslatableBootForm::inputGroup(trans('validation.attributes.value'), 'value')->addClass('colorpicker-component')->beforeAddon('<i></i>') !!}
+	{!! TranslatableBootForm::inputGroup(trans('attributes::global.attributes.value'), 'value')->addClass('colorpicker-component')->beforeAddon('<i></i>') !!}
 @else
-	{!! TranslatableBootForm::text(trans('validation.attributes.value'), 'value') !!}
+	{!! TranslatableBootForm::text(trans('attributes::global.attributes.value'), 'value') !!}
 @endif

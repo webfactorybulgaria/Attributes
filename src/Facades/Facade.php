@@ -13,6 +13,6 @@ class Facade extends MainFacade
      */
     protected static function getFacadeAccessor()
     {
-        return 'TypiCMS\Modules\Attributes\Repositories\AttributeInterface';
+        return 'TypiCMS\Modules\Attributes\Shells\Repositories\AttributeInterface';
     }
 }

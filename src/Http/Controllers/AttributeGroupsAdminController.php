@@ -2,10 +2,10 @@
 
 namespace TypiCMS\Modules\Attributes\Http\Controllers;
 
-use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
-use TypiCMS\Modules\Attributes\Http\Requests\FormRequest;
-use TypiCMS\Modules\Attributes\Models\AttributeGroup;
-use TypiCMS\Modules\Attributes\Repositories\AttributeGroupInterface;
+use TypiCMS\Modules\Core\Shells\Http\Controllers\BaseAdminController;
+use TypiCMS\Modules\Attributes\Shells\Http\Requests\FormRequest;
+use TypiCMS\Modules\Attributes\Shells\Models\AttributeGroup;
+use TypiCMS\Modules\Attributes\Shells\Repositories\AttributeGroupInterface;
 
 class AttributeGroupsAdminController extends BaseAdminController
 {
@@ -43,13 +43,13 @@ class AttributeGroupsAdminController extends BaseAdminController
     /**
      * Edit form for the specified resource.
      *
-     * @param \TypiCMS\Modules\Attributes\Models\AttributeGroup $group
+     * @param \TypiCMS\Modules\Attributes\Shells\Models\AttributeGroup $group
      *
      * @return \Illuminate\View\View
      */
     public function edit(AttributeGroup $group)
     {
-        $repository = app('TypiCMS\Modules\Attributes\Repositories\AttributeInterface');
+        $repository = app('TypiCMS\Modules\Attributes\Shells\Repositories\AttributeInterface');
         $models = $repository->allNestedBy('attribute_group_id', $group->id, [], true);
         app('JavaScript')->put('models', $models);
 
@@ -60,7 +60,7 @@ class AttributeGroupsAdminController extends BaseAdminController
     /**
      * Store a newly created resource in storage.
      *
-     * @param \TypiCMS\Modules\Attributes\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Attributes\Shells\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -74,8 +74,8 @@ class AttributeGroupsAdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param \TypiCMS\Modules\Attributes\Models\AttributeGroup     $attribute
-     * @param \TypiCMS\Modules\Attributes\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Attributes\Shells\Models\AttributeGroup     $attribute
+     * @param \TypiCMS\Modules\Attributes\Shells\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */

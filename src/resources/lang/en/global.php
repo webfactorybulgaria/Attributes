@@ -9,4 +9,9 @@ return [
     'New Group'      => 'New attribute group',
     'Edit'     => 'Edit attribute',
     'Back'     => 'Back to attributes',
+
+    'attributes' => [
+        'groupname' => 'Attribute group name',
+        'value' => 'Value',
+    ]
 ];

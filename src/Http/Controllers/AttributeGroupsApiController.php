@@ -3,9 +3,9 @@
 namespace TypiCMS\Modules\Attributes\Http\Controllers;
 
 use Illuminate\Support\Facades\Request;
-use TypiCMS\Modules\Core\Http\Controllers\BaseApiController;
-use TypiCMS\Modules\Attributes\Models\AttributeGroup;
-use TypiCMS\Modules\Attributes\Repositories\AttributeGroupInterface as Repository;
+use TypiCMS\Modules\Core\Shells\Http\Controllers\BaseApiController;
+use TypiCMS\Modules\Attributes\Shells\Models\AttributeGroup;
+use TypiCMS\Modules\Attributes\Shells\Repositories\AttributeGroupInterface as Repository;
 
 class AttributeGroupsApiController extends BaseApiController
 {
@@ -68,7 +68,7 @@ class AttributeGroupsApiController extends BaseApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param \TypiCMS\Modules\Attributes\Models\Attribute $attribute
+     * @param \TypiCMS\Modules\Attributes\Shells\Models\Attribute $attribute
      *
      * @return \Illuminate\Http\JsonResponse
      */

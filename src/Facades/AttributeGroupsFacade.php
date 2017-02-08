@@ -13,6 +13,6 @@ class AttributeGroupsFacade extends MainFacade
      */
     protected static function getFacadeAccessor()
     {
-        return 'TypiCMS\Modules\Attributes\Repositories\AttributeGroupInterface';
+        return 'TypiCMS\Modules\Attributes\Shells\Repositories\AttributeGroupInterface';
     }
 }
