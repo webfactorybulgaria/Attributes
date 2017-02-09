@@ -1,0 +1,11 @@
+<div class="disclose fa fa-fw" ng-class="{'fa-caret-right': collapsed, 'fa-caret-down': !collapsed, hidden: !model.items.length}" ng-click="toggle(this)"></div>
+<div typi-btn-delete action="deleteFromNested(this)"></div>
+<div>
+    <a class="btn btn-default btn-xs" href="attributes/{{ model.id }}/edit" translate>Edit</a>
+</div>
+
+<div typi-btn-status action="toggleStatus(model)" model="model"></div>
+<div class="title" ui-tree-handle>
+	{{ model.value }}
+	<div ng-show="isColor(model.value)" style="border:1px solid gray;width:50px;height:30px;background-color:{{model.value}}" ></div>
+</div>

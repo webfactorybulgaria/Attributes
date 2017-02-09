@@ -14,7 +14,7 @@ class CreateAttributablesTable extends Migration
     {
         Schema::create('attributables', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('attribute_id')->unsigned();
+            $table->integer('attribute_group_id')->unsigned();
             $table->integer('attributable_id')->unsigned();
             $table->string('attributable_type');
             $table->timestamps();
