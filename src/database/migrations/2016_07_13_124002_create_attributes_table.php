@@ -16,7 +16,7 @@ class CreateAttributesTable extends Migration
         Schema::create('attribute_groups', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('type');
+            $table->string('type')->nullable();
             $table->timestamps();
         });
 
