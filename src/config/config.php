@@ -3,6 +3,7 @@
 return [
     'per_page' => 30,
     'order' => [
+        'attribute_group_id' => 'asc',
         'position' => 'asc',
     ],
     'sidebar' => [

@@ -92,4 +92,9 @@ class Attribute extends Base
             Log::error($e->getMessage());
         }
     }
+
+    public function fillAttr($key, $val)
+    {
+        $this->id = $val;
+    }
 }
