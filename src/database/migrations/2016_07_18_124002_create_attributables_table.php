@@ -18,7 +18,7 @@ class CreateAttributablesTable extends Migration
             $table->integer('attributable_id')->unsigned();
             $table->string('attributable_type');
             $table->timestamps();
-            $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
+            $table->foreign('attribute_group_id')->references('id')->on('attributes')->onDelete('cascade');
         });
     }
 
