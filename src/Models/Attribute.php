@@ -47,6 +47,8 @@ class Attribute extends Base
 
     protected $appends = ['thumb'];
 
+    protected $with = ['attributeGroup'];
+
     /**
      * An attribute belongs to an attribute group.
      */
@@ -91,6 +93,11 @@ class Attribute extends Base
         } catch (InvalidArgumentException $e) {
             Log::error($e->getMessage());
         }
+    }
+
+    public function getGroupTitleAttribute()
+    {
+        return $this->attributeGroup->value;
     }
 
     public function fillAttr($key, $val)

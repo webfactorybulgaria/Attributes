@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
 
-class CustomAttribute extends Base
+/**
+ * This is a fake class that is used to eager load the actual attribute groups
+ */
+class CustomAttributeGroup extends Base
 {
     public $incrementing = false;
 
@@ -18,27 +21,8 @@ class CustomAttribute extends Base
         return $builder;
     }
 
-    public function attributeGroup()
-    {
-        return $this->belongsTo('TypiCMS\Modules\Attributes\Shells\Models\CustomAttributeGroup', 'id', 'id');
-    }
-
-    public function getGroupTitleAttribute()
-    {
-        return $this->attributeGroup->value;
-    }
-
     public function getValueAttribute()
     {
-        return json_decode($this->id)->value;
+        return trans('db.shop.custom_attribute.group_title.' . json_decode($this->id)->groupKey);
     }
-
-    public function fillAttr($key, $val)
-    {
-        $tmp = new \stdClass;
-        $tmp->groupKey = $key;
-        $tmp->value = $val;
-        $this->id = json_encode($tmp);
-    }
-
 }
