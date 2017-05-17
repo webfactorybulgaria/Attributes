@@ -13,6 +13,7 @@ class CreateAttributablesTable extends Migration
     public function up()
     {
         Schema::create('attributables', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('attribute_group_id')->unsigned();
             $table->integer('attributable_id')->unsigned();
